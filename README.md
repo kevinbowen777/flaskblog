@@ -24,7 +24,7 @@ exercises in Miguel Grinberg's excellent tutorial [The Flask Mega-Tutorial](http
 
 
 ---
-[![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/kevinbowen777/flaskblog/-/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/kevinbowen777/flaskblog/blob/master/LICENSE)
 ---
 ### Reporting Bugs                                                              
                                                                                  
