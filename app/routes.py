@@ -1,5 +1,5 @@
 from flask import render_template, flash, redirect, url_for, request
-from flask_login import current_user, login_user, logout_user
+from flask_login import login_user, logout_user, current_user, login_required
 from app import app
 from app.forms import LoginForm
 from app.models import User
@@ -7,6 +7,7 @@ from app.models import User
 
 @app.route('/')
 @app.route('/index')
+@login_required
 def index():
     user = {'username': 'Kevin'}
     posts = [
@@ -19,7 +20,7 @@ def index():
             'body': 'The movie Casablanca was so romantic!'
         }
     ]
-    return render_template('index.html', title='Home', posts=posts)
+    return render_template('index.html', title='Home', user=user, posts=posts)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -37,7 +38,7 @@ def login():
     return render_template('login.html',  title='Sign In', form=form)
 
 
-@app.rout('/logout')
+@app.route('/logout')
 def logout():
     logout_user()
     return redirect(url_for('index'))
