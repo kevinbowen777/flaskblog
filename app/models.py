@@ -6,7 +6,25 @@ from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
 from app import db, login
+from app.search import add_to_index, remove_from_index, query_index
 
+
+class SearchableMixin(object):
+    @classmethod
+    def search(cls, expression, page, per_page):
+        pass
+
+    @classmethod
+    def before_commit(cls, session):
+        pass
+
+    @classmethod
+    def after_commit(cls, session):
+        pass
+
+    @classmethod
+    def reindex(cls):
+        pass
 
 followers = db.Table(
     'followers',
