@@ -17,4 +17,5 @@ class Config(object):
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = ['kevinbowen@protonmail.com']
     LANGUAGES = ['en', 'es']
+    ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
     POSTS_PER_PAGE = 10
