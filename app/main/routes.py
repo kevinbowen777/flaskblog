@@ -2,7 +2,7 @@ from datetime import datetime
 from flask import render_template, flash, redirect, url_for, request, g, \
     current_app
 from flask_login import current_user, login_required
-from flask_babel import _, get_locale
+from flask_babel import _
 from langdetect import detect, LangDetectException
 from app import db
 from app.main.forms import EditProfileForm, EmptyForm, PostForm, SearchForm
@@ -16,7 +16,6 @@ def before_request():
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
         g.search_form = SearchForm()
-    g.locale = str(get_locale())
 
 
 @bp.route('/', methods=['GET', 'POST'])
