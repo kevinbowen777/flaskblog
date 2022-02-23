@@ -94,10 +94,10 @@ def follow(username):
     if form.validate_on_submit():
         user = User.query.filter_by(username=username).first()
         if user is None:
-            flash(_('User %(username)s not found.', username=username))
+            flash('User %(username)s not found.', username=username)
             return redirect(url_for('main.index'))
         if user == current_user:
-            flash(_('You cannot follow yourself!'))
+            flash('You cannot follow yourself!')
             return redirect(url_for('main.user', username=username))
         current_user.follow(user)
         db.session.commit()
@@ -117,7 +117,7 @@ def unfollow(username):
             flash('User %(username)s not found.', username=username)
             return redirect(url_for('main.index'))
         if user == current_user:
-            flash(_('You cannot unfollow yourself!'))
+            flash('You cannot unfollow yourself!')
             return redirect(url_for('main.user', username=username))
         current_user.unfollow(user)
         db.session.commit()
@@ -139,6 +139,6 @@ def search():
         if total > page * current_app.config['POSTS_PER_PAGE'] else None
     prev_url = url_for('main.search', q=g.search_form.q.data, page=page - 1) \
         if page > 1 else None
-    return render_template('search.html', title=_('Search'), posts=posts,
+    return render_template('search.html', title='Search', posts=posts,
                            next_url=next_url, prev_url=prev_url)
 
