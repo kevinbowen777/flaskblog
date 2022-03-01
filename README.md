@@ -15,7 +15,8 @@ exercises in Miguel Grinberg's excellent tutorial [The Flask Mega-Tutorial](http
  - basic API support for viewing/creating posts or comments
 
 ### Live Demo on Heroku: 
- - TBD
+ - [Flask Blog - Heroku](https://flaskblog-2022.herokuapp.com/)
+
 ### Docker Container Image:
 
  - TBD
