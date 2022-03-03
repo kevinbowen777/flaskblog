@@ -24,7 +24,12 @@ exercises in Miguel Grinberg's excellent tutorial [The Flask Mega-Tutorial](http
 ## Screenshots
 
 ### Posts
-[![Posts](https://github.com/kevinbowen777/flaskblog/blob/master/images/flaskblog_posts.png)]
+![Posts](https://github.com/kevinbowen777/flaskblog/blob/master/images/flaskblog_posts.png)
+
+### Profile
+![Profile](https://github.com/kevinbowen777/flaskblog/blob/master/images/flaskblog_profile.png)
+
+
 
 
 ---
