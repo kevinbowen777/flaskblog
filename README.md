@@ -19,7 +19,8 @@ exercises in Miguel Grinberg's excellent tutorial [The Flask Mega-Tutorial](http
 
 ### Docker Container Image:
 
- - TBD
+ - [Flask Blog - Docker
+   Image](https://hub.docker.com/repository/docker/kevinbowen777/flaskblog)
 ---
 ## Screenshots
 
