@@ -4,11 +4,13 @@ RUN useradd flaskblog
 
 WORKDIR /home/flaskblog
 
-COPY requirements.txt requirements.txt
+#COPY requirements.txt requirements.txt
+COPY requirements/common.txt requirements/common.txt
+COPY requirements/docker.txt requirements/docker.txt
 RUN python -m venv venv
 RUN venv/bin/pip install --upgrade pip
-RUN venv/bin/pip install -r requirements.txt
-RUN venv/bin/pip install gunicorn pymysql cryptography
+RUN venv/bin/pip install -r requirements/docker.txt
+# RUN venv/bin/pip install gunicorn pymysql cryptography
 
 COPY app app
 COPY migrations migrations
