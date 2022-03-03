@@ -8,11 +8,9 @@ exercises in Miguel Grinberg's excellent tutorial [The Flask Mega-Tutorial](http
 ---
 ## Features
  - email verification for account registration & password/email change
- - MarkDown support and preview for comments & posts
  - ability to follow specific users
  - filter posts by followed users
  - gravatar support for user icons
- - basic API support for viewing/creating posts or comments
 
 ### Live Demo on Heroku: 
  - [Flask Blog - Heroku](https://flaskblog-2022.herokuapp.com/)
