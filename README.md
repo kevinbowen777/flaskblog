@@ -29,7 +29,8 @@ exercises in Miguel Grinberg's excellent tutorial [The Flask Mega-Tutorial](http
 ### Profile
 ![Profile](https://github.com/kevinbowen777/flaskblog/blob/master/images/flaskblog_profile.png)
 
-
+### Search Results
+![Profile](https://github.com/kevinbowen777/flaskblog/blob/master/images/flaskblog_search_results.png)
 
 
 ---
