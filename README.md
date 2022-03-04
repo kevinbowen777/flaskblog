@@ -11,6 +11,7 @@ exercises in Miguel Grinberg's excellent tutorial [The Flask Mega-Tutorial](http
  - ability to follow specific users
  - filter posts by followed users
  - gravatar support for user icons
+ - private messaging between registered users
 
 ### Live Demo on Heroku: 
  - [Flask Blog - Heroku](https://flaskblog-2022.herokuapp.com/)
