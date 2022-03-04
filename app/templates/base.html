@@ -66,5 +66,18 @@
 {% block scripts %}
     {{ super() }}
     {{ moment.include_moment() }}
-    {{ moment.lang(g.locale) }}
+    <script>
+        $(function() {
+            $('.user_popup').hover(
+                function(event) {
+                    // mouse in event handler
+                    var elem = $(event.currentTarget);
+                },
+                function(event) {
+                    // mouse out event handler
+                    var elem = $(event.currentTarget);
+                }
+            )
+        });
+    </script>
 {% endblock %}
