@@ -18,3 +18,13 @@ def _set_task_progress(progress):
         if progress >= 100:
             task.complete = True
         db.session.commit()
+
+
+def export_posts(user_id):
+    try:
+        # read user posts from database
+        # send email with data to user
+    except:
+        # handle uexpected errors
+    finally:
+        # handle clean up
