@@ -144,7 +144,6 @@ class User(UserMixin, db.Model):
         db.session.add(n)
         return n
 
-
     def launch_task(self, name, description, *args, **kwargs):
         rq_job = current_app.task_queue.enqueue('app.tasks.' + name, self.id,
                                                 *args, **kwargs)
