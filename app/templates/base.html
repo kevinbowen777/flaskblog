@@ -4,13 +4,6 @@
     {% if title %}{{ title }} - Flaskblog{% else %}Welcome to Flaskblog{% endif %}
 {% endblock %}
 
-{% block head %}
-{{ super() }}
-<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/       x-icon">
-<link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
-{% endblock %}
-
 {% block navbar %}
     <nav class="navbar navbar-default">
         <div class="container">
@@ -60,6 +53,18 @@
 
 {% block content %}
     <div class="container">
+        {% if current_user.is_authenticated %}
+        {% with tasks = current_user.get_tasks_in_progress() %}
+        {% if tasks %}
+            {% for task in tasks %}
+            <div class="alert alert-success" role="alert">
+                {{ task.description }}
+                <span id="{{ task.id }}-progress">{{ task.get_progress() }}</span>%
+            </div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+        {% endif %}
         {% with messages = get_flashed_messages() %}
         {% if messages %}
             {% for message in messages %}
