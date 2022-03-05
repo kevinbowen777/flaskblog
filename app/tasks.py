@@ -1,5 +1,9 @@
 import time
 from rq import get_current_job
+from app import create_app
+
+app = create_app
+app.app_context().push()
 
 
 def example(seconds):
