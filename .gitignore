@@ -4,6 +4,8 @@
 app.db
 .idea/
 logs/
+# Redis dump file
+dump.rdb
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
