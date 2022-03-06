@@ -11,4 +11,4 @@ def error_response(status_code, message=None):
     return response
 
 def bad_request():
-    pass
+    return error_response(400, message)
