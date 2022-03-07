@@ -1,7 +1,14 @@
 -r common.txt
 certifi==2021.10.8
 chardet==4.0.0
+charset-normalizer==2.0.12
+defusedxml==0.7.1
 Faker==13.2.0
-httpie==0.9.9
+httpie==3.0.2
 idna==3.3
+multidict==6.0.2
+Pygments==2.11.2
+PySocks==1.7.1
+requests==2.27.1
+requests-toolbelt==0.9.1
 urllib3==1.26.8
