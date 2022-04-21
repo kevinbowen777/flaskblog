@@ -3,7 +3,16 @@
 Flask Blog is a demonstration of Flask functionality taken directly from the
 exercises in Miguel Grinberg's excellent tutorial [The Flask Mega-Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world) 
 
+## Installation
+Local dev environment:
+ - `git clone https://github.com/kevinbowen777/flaskblog.git`
+ - `mkvirtualenv flaskblog`
+ - `pip install -r requirements/dev.txt`
+ - `flask run`
+ - Open browser to http://127.0.0.1:5000
 
+Local dev environment(with Docker):
+ - TBD
 
 ---
 ## Features
