@@ -32,8 +32,9 @@ Local dev environment(with Docker):
  - gravatar support for user icons
  - private messaging between registered users
 
-### Live Demo on Heroku:
- - [Flask Blog - Heroku](https://flaskblog-2022.herokuapp.com/)
+### Live Application Demo:
+
+TBD
 
 ### Docker Container Image:
 
@@ -43,13 +44,13 @@ Local dev environment(with Docker):
 ## Screenshots
 
 ### Posts
-![Posts](https://github.com/kevinbowen777/flaskblog/blob/master/images/flaskblog_posts.png)
+![Posts](images/flaskblog_posts.png)
 
 ### Profile
-![Profile](https://github.com/kevinbowen777/flaskblog/blob/master/images/flaskblog_profile.png)
+![Profile](images/flaskblog_profile.png)
 
 ### Search Results
-![Profile](https://github.com/kevinbowen777/flaskblog/blob/master/images/flaskblog_search_results.png)
+![Profile](images/flaskblog_search_results.png)
 
 
 ---
