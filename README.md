@@ -16,13 +16,35 @@ exercises in Miguel Grinberg's excellent tutorial [The Flask Mega-Tutorial](http
 ## Installation
 Local dev environment:
  - `git clone https://github.com/kevinbowen777/flaskblog.git`
- - `mkvirtualenv flaskblog`
+ - `cd flaskblog`
+ - `python -m venv venv`
+ - `source venv/bin/activate`
  - `pip install -r requirements/dev.txt`
  - `flask run`
+ - `flask db upgrade`
+   A database named `app.db` will be created with the appropriate tables.
  - Open browser to http://127.0.0.1:5000
 
-Local dev environment(with Docker):
- - TBD
+Local dev environment(with Docker & MySQL):
+ - Download and start a MySQL db:
+```
+docker run --name mysql -d -e MYSQL_RANDOM_ROOT_PASSWORD=yes \
+    -e MYSQL_DATABASE=flaskblog -e MYSQL_USER=flaskblog \
+    -e MYSQL_PASSWORD=SmQdemoAkZa \
+    mysql/mysql-server:latest
+```
+  - Download and start the flaskblog Docker container:
+```
+docker run --name microblog -d -p 8000:5000 --rm -e SECRET_KEY=d9dfd9d4db014650428af71c3fd69a47 \
+    -e MAIL_SERVER=smtp.googlemail.com -e MAIL_PORT=587 -e MAIL_USE_TLS=true \
+    -e MAIL_USERNAME=user@gmail.example.com -e MAIL_PASSWORD=qnrfblogspksmeta \
+    --link mysql:dbserver \
+    -e DATABASE_URL=mysql+pymysql://flaskblog:SmQdemoAkZa@dbserver/flaskblog \
+    kevinbowen777/flaskblog:latest
+```
+  - Open browser to http://127.0.0.1:8000
+  - NOTE: Be sure to change the credentials used in the commands above. They are
+    shown only for example purposes.
 
 ---
 ## Features
