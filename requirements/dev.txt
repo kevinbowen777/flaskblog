@@ -7,6 +7,7 @@ Faker==13.2.0
 httpie==3.0.2
 idna==3.3
 multidict==6.1.0
+nox = "2024.10.09"
 pre-commit = "3.5.0"
 Pygments==2.11.2
 PySocks==1.7.1
