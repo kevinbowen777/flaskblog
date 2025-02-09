@@ -48,6 +48,7 @@ docker run --name microblog -d -p 8000:5000 --rm -e SECRET_KEY=d9dfd9d4db0146504
 
 ## Testing
   - Run unit tests with `python tests.py`
+  - or, alternatively, run `python -W ignore:DeprecationWarning tests.py`
 
 ## Features
  - email verification for account registration & password/email change
