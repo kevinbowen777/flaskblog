@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import unittest
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 from app import create_app, db
 from app.models import Post, User
@@ -33,7 +33,12 @@ class UserModelCase(unittest.TestCase):
     def test_avatar(self):
         u = User(username="john", email="john@example.com")
         self.assertEqual(
-            u.avatar(128), ("https://www.gravatar.com/avatar/" "d4c74594d841139328695756648b6bd6" "?d=identicon&s=128")
+            u.avatar(128),
+            (
+                "https://www.gravatar.com/avatar/"
+                "d4c74594d841139328695756648b6bd6"
+                "?d=identicon&s=128"
+            ),
         )
 
     def test_follow(self):
@@ -68,11 +73,19 @@ class UserModelCase(unittest.TestCase):
         db.session.add_all([u1, u2, u3, u4])
 
         # create four posts
-        now = datetime.utcnow()
-        p1 = Post(body="post from john", author=u1, timestamp=now + timedelta(seconds=1))
-        p2 = Post(body="post from susan", author=u2, timestamp=now + timedelta(seconds=4))
-        p3 = Post(body="post from mary", author=u3, timestamp=now + timedelta(seconds=3))
-        p4 = Post(body="post from david", author=u4, timestamp=now + timedelta(seconds=2))
+        now = datetime.now(timezone.utc)
+        p1 = Post(
+            body="post from john", author=u1, timestamp=now + timedelta(seconds=1)
+        )
+        p2 = Post(
+            body="post from susan", author=u2, timestamp=now + timedelta(seconds=4)
+        )
+        p3 = Post(
+            body="post from mary", author=u3, timestamp=now + timedelta(seconds=3)
+        )
+        p4 = Post(
+            body="post from david", author=u4, timestamp=now + timedelta(seconds=2)
+        )
         db.session.add_all([p1, p2, p3, p4])
         db.session.commit()
 
