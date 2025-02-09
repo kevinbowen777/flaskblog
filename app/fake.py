@@ -1,6 +1,3 @@
-import random
-from random import randint
-
 from faker import Faker
 from sqlalchemy.exc import IntegrityError
 
