@@ -89,42 +89,100 @@ requests = "2.27.1"
 requests-toolbelt = "0.9.1"
 urllib3 = "1.26.8"
 pre-commit = "3.5.0"
-black = "22.3.0"
-flake8 = "4.0.1"
-isort = "5.10.1"
+ruff = ">=0.8, <1.0"
 
-[tool.black]
-line-length = 119
-# include =
-exclude = '''
-/(
-    \.git
-  | __pycache__
-  | .pytest_cache
-  | .venv
-  | alembic
-  | staticfiles
-  | build
-  | dist
-  | migrations/versions/2866cab8d2c6_new_fields_in_user_model.py,
-  | migrations/versions/2970ab6257a1_tasks.py,
-  | migrations/versions/2972822f24b3_private_messages.py,
-  | migrations/versions/33bc310a3f5e_posts_table.py,
-  | migrations/versions/48178226be6a_user_tokens.py,
-  | migrations/versions/5702581db6dc_notifications.py,
-  | migrations/versions/5f4fe5977665_users_table.py,
-  | migrations/versions/aee78877cc2d_add_language_to_posts.py,
-  | migrations/versions/ee488fcf4ee5_followers.py,
-  | ^.*\b(migrations)\b.*$
-)/
-'''
+[tool.poetry.requires-plugins]
+poetry-plugin-export = ">=1.8"
 
-[tool.isort]
-profile = "black"
-multi_line_output = 3
-skip = ["*.gitignore"]
-extend_skip = ["*.md", "*.json"]
-line_length = 119
+[tool.ruff]
+preview = true
+respect-gitignore = true
+unsafe-fixes = false
+
+# Same as Black.
+line-length = 88
+indent-width = 4
+
+# Assume Python 3.13.x
+target-version = "py313"
+
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".git",
+    ".mypy_cache",
+    ".nox",
+    ".ruff_cache",
+    "__pycache__",
+    "logs",
+    "migrations",
+    "images",
+    "media",
+]
+
+[tool.ruff.lint]
+select = [
+    # "A",    # flake8-builtins
+    "B",    # flake8-bugbear
+    "C90",  # mccabe
+    "E",    # pycodestyle errors
+    "F",    # pyflakes
+    "I",    # isort
+    "S",    # flake8-bandit
+    "W",    # pycodestyle warnings
+    # "RUF",  # ruff checks
+]
+ignore = [
+    "E501",    # line too long ({width} > {limit} characters)
+    # "E203",  # slice notation whitespace (not currently supported)
+    "E402",    # module level import not at top of file
+    "E722",    # do not use bare except
+    # "W503",  # (not currently supported)
+    "ERA",     # do not autoremove commented out code
+]
+
+# Allow autofix for all enabled rules (when `--fix`) is provided.
+fixable = ["A", "B", "C", "D", "E", "F", "G", "I", "N", "Q", "S", "T", "W", "ANN", "ARG", "BLE", "COM", "DJ", "DTZ", "EM", "ERA", "EXE", "FBT", "ICN", "INP", "ISC", "NPY", "PD", "PGH", "PIE", "PL", "PT", "PTH", "PYI", "RET", "RSE", "RUF", "SIM", "SLF", "TCH", "TID", "TRY", "UP", "YTT"]
+unfixable = []
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.lint.per-file-ignores]
+"app/fake.py" = ["B007", "S106"]
+"app/models.py" = ["S324"]  # insecure hash function #TODO
+"app/__init__.py" = ["F401"]  # imported but unused #TODO
+# "docs/conf.py" = ["A001"]
+
+[tool.ruff.lint.mccabe]
+# Unlike Flake8, default to a complexity level of 10.
+max-complexity = 10
+
+[tool.ruff.format]
+# Like Black, use double quotes for strings.
+quote-style = "double"
+
+# Like Black, indent with spaces, rather than tabs.
+indent-style = "space"
+
+# Like Black, repspect magic trailing commas.
+skip-magic-trailing-comma = false
+
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto"
+
+# Enable auto-formatting of code examples in docstrings. Markdown,
+# reStructuredText code/literal blocks and doctests are all supported.
+#
+# This is currently disabled by default, but it is planned for this
+# to be opt-out in the future.
+docstring-code-format = false
+
+# Set the line length limit used when formatting code snippets in
+# docstrings.
+#
+# This only has an effect when the `docstring-code-format` setting is
+# enabled.
+docstring-code-line-length = "dynamic"
 
 [build-system]
 requires = ["poetry-core>=2.0.0"]

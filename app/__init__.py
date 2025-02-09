@@ -35,7 +35,11 @@ def create_app(config_class=Config):
     mail.init_app(app)
     bootstrap.init_app(app)
     moment.init_app(app)
-    app.elasticsearch = Elasticsearch([app.config["ELASTICSEARCH_URL"]]) if app.config["ELASTICSEARCH_URL"] else None
+    app.elasticsearch = (
+        Elasticsearch([app.config["ELASTICSEARCH_URL"]])
+        if app.config["ELASTICSEARCH_URL"]
+        else None
+    )
     app.redis = Redis.from_url(app.config["REDIS_URL"])
     app.task_queue = rq.Queue("flaskblog-tasks", connection=app.redis)
 
@@ -81,9 +85,14 @@ def create_app(config_class=Config):
         else:
             if not os.path.exists("logs"):
                 os.mkdir("logs")
-            file_handler = RotatingFileHandler("logs/flaskblog.log", maxBytes=10240, backupCount=10)
+            file_handler = RotatingFileHandler(
+                "logs/flaskblog.log", maxBytes=10240, backupCount=10
+            )
             file_handler.setFormatter(
-                logging.Formatter("%(asctime)s %(levelname)s: %(message)s " "[in %(pathname)s:%(lineno)d]")
+                logging.Formatter(
+                    "%(asctime)s %(levelname)s: %(message)s "
+                    "[in %(pathname)s:%(lineno)d]"
+                )
             )
             file_handler.setLevel(logging.INFO)
             app.logger.addHandler(file_handler)
@@ -94,4 +103,4 @@ def create_app(config_class=Config):
     return app
 
 
-from app import models
+from app import models as models

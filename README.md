@@ -46,7 +46,9 @@ docker run --name microblog -d -p 8000:5000 --rm -e SECRET_KEY=d9dfd9d4db0146504
   - NOTE: Be sure to change the credentials used in the commands above. They are
     shown only for example purposes.
 
----
+## Testing
+  - Run unit tests with `python tests.py`
+
 ## Features
  - email verification for account registration & password/email change
  - ability to follow specific users
@@ -60,9 +62,8 @@ TBD
 
 ### Docker Container Image:
 
- - [Flask Blog - Docker
-   Image](https://hub.docker.com/repository/docker/kevinbowen777/flaskblog)
----
+ - [Flask Blog - Docker Image](https://hub.docker.com/repository/docker/kevinbowen777/flaskblog)
+
 ## Screenshots
 
 ### Posts
@@ -74,10 +75,8 @@ TBD
 ### Search Results
 ![Profile](images/flaskblog_search_results.png)
 
-
----
 [![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/kevinbowen777/flaskblog/blob/master/LICENSE)
----
+
 ### Reporting Bugs
 
    Visit the [Issues page](https://github.com/kevinbowen777/flaskblog/issues)

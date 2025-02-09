@@ -1,18 +1,16 @@
 -r common.txt
-black = "22.3.0"
 certifi==2021.10.8
 chardet==4.0.0
 charset-normalizer==2.0.12
 defusedxml==0.7.1
 Faker==13.2.0
-flake8 = "4.0.1"
 httpie==3.0.2
 idna==3.3
-isort = "5.10.1"
 multidict==6.1.0
 pre-commit = "3.5.0"
 Pygments==2.11.2
 PySocks==1.7.1
 requests==2.27.1
 requests-toolbelt==0.9.1
+ruff==0.9.5
 urllib3==1.26.8
