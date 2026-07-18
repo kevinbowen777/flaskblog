@@ -1,8 +1,8 @@
 [project]
 name = "flaskblog"
-version = "0.12.0"
+version = "0.13.0"
 description = "A microblog based on the Flask web framework"
-requires-python = ">=3.9.0, <3.14.0"
+requires-python = ">=3.10.0, <3.14.0"
 dependencies = [
     "alembic (==1.7.6)",
     "blinker (==1.4)",
@@ -13,7 +13,7 @@ dependencies = [
     "elastic-transport (==8.0.1)",
     "elasticsearch (==8.0.0)",
     "email-validator (==1.1.3)",
-    "Flask (==2.0.2)",
+    "Flask (==2.1.3)",
     "Flask-Bootstrap (==3.3.7.1)",
     "Flask-HTTPAuth (==4.5.0)",
     "Flask-Login (==0.5.0)",
@@ -61,10 +61,10 @@ classifiers = [
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Topic :: Internet :: WWW/HTTP",
 ]
 
@@ -91,6 +91,7 @@ urllib3 = "1.26.8"
 pre-commit = "3.5.0"
 ruff = ">=0.8, <1.0"
 nox = "2024.10.09"
+coverage = "^7.15.2"
 
 [tool.poetry.requires-plugins]
 poetry-plugin-export = ">=1.8"

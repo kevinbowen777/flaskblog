@@ -3,7 +3,7 @@ fail_fast: true
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
     # add supported hooks https://pre-commit.com/hooks.html
       - id: check-added-large-files
@@ -28,7 +28,7 @@ repos:
         files: (^|/)a/.+\.(py|html|sh|css|js)$
 
   - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: v0.9.5
+    rev: v0.15.22
     hooks:
       # Run the linter
       - id: ruff
@@ -37,13 +37,13 @@ repos:
       - id: ruff-format
 
   - repo: https://github.com/python-poetry/poetry
-    rev: 2.0.1
+    rev: 2.4.1
     hooks:
       - id: poetry-check
       - id: poetry-lock
 
   - repo: https://github.com/python-poetry/poetry-plugin-export
-    rev: 1.9.0
+    rev: 1.10.0
     hooks:
       - id: poetry-export
         args: ["-f", "requirements.txt"]
