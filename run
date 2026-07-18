@@ -50,13 +50,15 @@ function cmd {
 function cov:test {
   # Run pytest
   # cmd coverage run -m pytest "${@}"
-  coverage run -m pytest "${@}"
+  # coverage run -m pytest "${@}"
+  coverage run -m unittest tests.py "${@}"
 }
 
 function cov:test-slow {
   # Run pytest & show 10 slowest tests
   # cmd coverage run -m pytest "${@}" --durations 10
-  coverage run -m pytest "${@}" --durations 10
+  # coverage run -m pytest "${@}" --durations 10
+  coverage run -m unittest tests.py "${@}" --durations 10
 }
 
 function cov:report {
@@ -172,25 +174,25 @@ function poe:up {
   poetry update
 }
 
-# function reqs:dev {
-#   # Export all package requirements
-#   # poetry export -f requirements.txt --with=dev --without-hashes -o requirements-dev.txt
-#   poetry export --with=dev --output requirements-dev.txt
-# }
-# 
-# function reqs:prod {
-#   # Export production package requirements
-#   # poetry export -f requirements.txt --without-hashes -o requirements.txt
-#   poetry export --output requirements.txt
-# }
-# 
-# function reqs:all {
-#   # Export production package requirements
-#   # poetry export -f requirements.txt --with=dev --without-hashes -o requirements-dev.txt
-#   # poetry export -f requirements.txt --without-hashes -o requirements.txt
-#   poetry export --output requirements.txt
-#   poetry export --with=dev --output requirements-dev.txt
-# }
+function reqs:dev {
+  # Export all package requirements
+  # poetry export -f requirements.txt --with=dev --without-hashes -o requirements-dev.txt
+  poetry export --with=dev --output requirements-dev.txt
+}
+ 
+function reqs:prod {
+  # Export production package requirements
+  # poetry export -f requirements.txt --without-hashes -o requirements.txt
+  poetry export --output requirements.txt
+}
+ 
+function reqs:all {
+  # Export production package requirements
+  # poetry export -f requirements.txt --with=dev --without-hashes -o requirements-dev.txt
+  # poetry export -f requirements.txt --without-hashes -o requirements.txt
+  poetry export --output requirements.txt
+  poetry export --with=dev --output requirements-dev.txt
+}
 
 function ruff:check {
   # check for linting errors. Do not fix.

@@ -4,8 +4,8 @@ import tempfile
 
 import nox
 
-PYTHON_VERSIONS = ["3.9", "3.10", "3.11", "3.12", "3.13"]
-nox.options.sessions = "lint", "coverage", "safety", "tests"
+PYTHON_VERSIONS = ["3.10", "3.11", "3.12", "3.13"]
+nox.options.sessions = "lint", "coverage", "tests"
 locations = (
     "app",
     "./noxfile.py",
@@ -46,7 +46,7 @@ def install_with_constraints(session, *args, **kwargs):
 def coverage(session):
     """Build JSON coverage report."""
     install_with_constraints(session, "coverage")
-    session.run("coverage", "run", "-p", "-m", "pytest")
+    session.run("coverage", "run", "-p", "-m", "unittest", "tests.py")
     session.run("coverage", "combine")
     session.run("coverage", "report", "-m", "--skip-covered")
     session.run("coverage", "json", "-o", "htmlcov/coverage.json")
@@ -75,31 +75,6 @@ def lint(session):
 # def pyright(session):
 #     """Run pyright type checker."""
 #     session.run("pyright", external=True)
-
-
-# @nox.session(python=PYTHON_VERSIONS)
-# def safety(session):
-#     """Scan dependencies for insecure packages."""
-#     with tempfile.NamedTemporaryFile() as requirements:
-#         session.run(
-#             "poetry",
-#             "export",
-#             "--with",
-#             "dev",
-#             "--format=requirements.txt",
-#             "--without-hashes",
-#             f"--output={requirements.name}",
-#             external=True,
-#         )
-#         install_with_constraints(session, "safety")
-#         session.run(
-#             "safety",
-#             "check",
-#             f"--file={requirements.name}",
-#             "--ignore",
-#             # "70612",
-#             "--full-report",
-#         )
 
 
 @nox.session(python=PYTHON_VERSIONS)
